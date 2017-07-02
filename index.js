@@ -61,16 +61,12 @@ const pullRequestHandler = (msg) => {
       'User-Agent': 'lambda-github'
     };
 
-    console.log('Send', postData, 'to', url, 'with', headers);
-
     request({
       url: url,
       method: 'POST',
       headers: headers,
       json: postData
     }, (error, resp, body) => {
-      console.log('Response code:', resp.statusCode);
-
       if (error) {
         return reject(error);
       }
